@@ -1,0 +1,235 @@
+@import url("./font.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+  0% {
+    background-color: rgb(87, 89, 94);
+  }
+  50% {
+    background-color: rgb(198, 200, 204);
+  }
+  100% {
+    background-color: rgb(198, 200, 204);
+  }
+}
+.text {
+  display: none;
+}
+body,
+html {
+  overflow-x: hidden;
+
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body {
+  display: flex;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.only_speak {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.join_box {
+  margin-top: 10px;
+  display: flex;
+  background-color: #99bbc0;
+  border-radius: 30px;
+  font-size: 0.8rem;
+  padding: 3px 7px 3px 7px;
+  color: #0000078e;
+}
+.main_box {
+  overflow-y: scroll;
+  padding-top: 50px;
+  width: 90%;
+  max-width: 850px;
+  min-width: 390px;
+  height: 100%;
+  background-color: #ededee;
+}
+.npc {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+
+  height: auto;
+}
+#npc_list {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+#only {
+  margin-left: 65px !important;
+}
+.npc_speak {
+  margin: 10px 10px 0px 10px;
+  padding: 9px 14px 9px 14px;
+  background-color: white;
+  font-size: 0.8rem;
+  font-weight: 100;
+  border-radius: 7px;
+}
+#npc_profile {
+  margin-left: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.npc_name {
+  margin-left: 7px;
+
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.player {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: auto;
+  height: auto;
+}
+
+#player_profile {
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.player_name {
+  margin-right: 7px;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+.player_speak img {
+  width: 10vw;
+  min-width: 200px;
+  height: auto;
+}
+.npc_speak img {
+  width: 30vw;
+  min-width: 250px;
+  height: auto;
+}
+.player_speak {
+  display: flex;
+  margin: 10px 10px 0px 10px;
+  padding: 9px 14px 9px 14px;
+  background-color: white;
+  border-radius: 7px;
+}
+#only_speak {
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.491);
+  opacity: 0.7;
+}
+#player_list {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+#player_only {
+  margin-right: 55px !important;
+}
+
+.point:first-child {
+  margin-left: 0px;
+}
+.player_speak .delay-second {
+  animation-delay: 0.5s;
+}
+.player_speak .delay-third {
+  animation-delay: 1s;
+}
+
+.point {
+  margin-left: 10px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgb(198, 200, 204);
+  animation: 1.5s ease 0s infinite normal none running fadeIn;
+}
+
+.choose_list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #ededee;
+  width: 90%;
+  max-width: 850px;
+  min-width: 390px;
+  height: 30%;
+}
+
+.choose_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 15px;
+  padding: 0.6rem 2rem 0.6rem 2rem;
+  background-color: black;
+  border-radius: 5px;
+  color: white;
+}
+
+.status_box {
+  opacity: 0.8;
+  margin: 10px 0px 10px 0px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.status_box h3 {
+  color: red;
+  font-size: 0.8rem;
+}
+
+#self_img {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#self_img img {
+  width: 30%;
+  height: auto;
+}
+
+a {
+  color: white;
+  outline: none;
+  text-decoration: none;
+}

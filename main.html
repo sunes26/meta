@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>METAST</title>
+    <script>
+        document.documentElement.addEventListener('touchstart', function (event) {
+       if (event.touches.length > 1) {
+            event.preventDefault(); 
+          } 
+      }, false);
+  
+  var lastTouchEnd = 0; 
+  
+  document.documentElement.addEventListener('touchend', function (event) {
+       var now = (new Date()).getTime();
+       if (now - lastTouchEnd <= 200) {
+            event.preventDefault(); 
+          } lastTouchEnd = now; 
+      }, false);
+      </script>
+  </head>
+  <body>
+    
+
+    <main class="main_box">
+        <!--첫번째 질문 파트-->
+        
+        <div class="only_speak">
+          <h2>클릭 또는 아무키나 눌러 시작하세요</h2>
+          <h2 class="text">.</h2>
+          <h2 class="text">.</h2>
+          <h2 class="text">.</h2>
+          <h2 class="text">.</h2>
+  
+          <div class="join_box text" id="join" style="display: none">
+            <span class="user_name">ooo</span>님이 들어왔습니다.
+          </div>
+        </div>
+        <div class="text" style="display: none">
+          <div class="npc">
+            <img src="./img/attack_man.png" id="npc_profile" />
+            <div id="npc_list">
+              <div class="npc_name">
+                <p>은혜</p>
+              </div>
+              <div class="npc_speak">
+                <h2>야</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text" style="display: none">
+          <div class="npc">
+            <div class="npc_speak" id="only">
+              <h2>너 학교에서 내말 왜 씹냐</h2>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="player">
+            <div id="player_list">
+              <div class="player_name">
+                <p class="players">피해자</p>
+              </div>
+              <div class="player_speak">
+                <h2>아.. 무시한적 없어...</h2>
+              </div>
+            </div>
+            <img src="./img/defend_man.png" id="player_profile" />
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <img src="./img/attack_man.png" id="npc_profile" />
+            <div id="npc_list">
+              <div class="npc_name">
+                <p>은혜</p>
+              </div>
+              <div class="npc_speak">
+                <h2>하... 말대꾸..?</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <div id="npc_list">
+              <div class="npc_speak" id="only">
+                <h2>너 이따위로 계속 나오면 니 영상 뿌린다.</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <div id="npc_list">
+              <div class="npc_speak" id="only">
+                <h2>영상 뿌려지는게 싫으면 지금 당장 10만원 입금해라</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="player">
+            <div id="player_list">
+              <div class="player_name">
+                <p class="players">피해자</p>
+              </div>
+  
+              <div class="saying">
+                <div class="player_speak">
+                  <div class="point"></div>
+                  <div class="point delay-second"></div>
+                  <div class="point delay-third"></div>
+                </div>
+              </div>
+  
+              <div class="saying" style="display: none">
+                <div class="player_speak">
+                  <h2 class="user_say">aa</h2>
+                </div>
+              </div>
+            </div>
+  
+            <img src="./img/defend_man.png" id="player_profile" />
+          </div>
+        </div>
+        <!--첫번째 질문 에서 싫어요를 말했을 경우-->
+        <div class="scene" style="display: none">
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>ㅋㅋㅋㅋㅋㅋ 영상 뿌려져도 상관 없나보네</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div id="npc_list">
+                <div class="npc_speak" id="only">
+                  <h2>야야 영상 틀어봐라</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <iframe
+                    width="100%"
+                    height="auto"
+                    src="https://www.youtube.com/embed/Kiyi7eW1PoE"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak">
+                  <h2>ㅠㅠㅠ 미안 지금 바로 입금 해줄게..</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>이 자식 봐라 말을 계속 바꾸네 ㅋㅋ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>ㄹㅇㅋㅋ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>자살 충동도 10 증가하였습니다.</h3>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak" id="only_speak">
+                  <h2>하.. 언제까지 이렇게 지내야 하지..?</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>진짜 지긋지긋하다</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+  
+        
+        <!--2.어떻게든 입금 할게요 를 눌렸을 경우-->
+  
+        <div class="scene" style="display: none">
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>그래 말로 할때 하면 얼마나 좋아 ㅋㅋ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>이렇게 말하고 안보내기만 해봐 ㅋㅋ?</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>야 심심한데 영상이나 볼까?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <iframe
+                    width="100%"
+                    height="auto"
+                    src="https://www.youtube.com/embed/Kiyi7eW1PoE"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>야 퍼지는게 싫으면 빨리빨리 입금해라 ㅋ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak" id="only_speak">
+                  <h2>하.. 언제까지 이렇게 지내야 하지..?</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>진짜 지긋지긋하다</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>자살 충동도 8 증가하였습니다.</h3>
+            </div>
+          </div>
+        </div>
+        <!--두번째 씬-->
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <img src="./img/attack_man.png" id="npc_profile" />
+            <div id="npc_list">
+              <div class="npc_name">
+                <p>은혜</p>
+              </div>
+              <div class="npc_speak">
+                <h2>야 입금 확인했다 니돈 내가 자알써줄게ㅋ</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text" style="display: none">
+          <div class="npc">
+            <div id="npc_list">
+              <div class="npc_speak" id="only">
+                <h2>솔직히 내가 쓰는게 더 효율적이잖아</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <div id="npc_list">
+              <div class="npc_speak" id="only">
+                <h2>그러고 보니까 요즘 공부 좀 하나봐?</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text" style="display: none">
+          <div class="npc">
+            <div id="npc_list">
+              <div class="npc_speak" id="only">
+                <h2>쌤들에게 칭찬 많이 받던데?</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="player">
+            <div id="player_list">
+              <div class="player_name">
+                <p class="players">피해자</p>
+              </div>
+              <div class="player_speak">
+                <h2>아냐.. 그냥 어쩌다보니까...ㅎ</h2>
+              </div>
+            </div>
+            <img src="./img/defend_man.png" id="player_profile" />
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <img src="./img/attack_man2.png" id="npc_profile" />
+            <div id="npc_list">
+              <div class="npc_name">
+                <p>지연</p>
+              </div>
+              <div class="npc_speak">
+                <h2>이*끼 봐라 한번 띄어주니까 아주 기고만장해지네</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <img src="./img/attack_man.png" id="npc_profile" />
+            <div id="npc_list">
+              <div class="npc_name">
+                <p>은혜</p>
+              </div>
+              <div class="npc_speak">
+                <h2>그래 못생겼는데 공부라도 잘해야지 ㅋㅋ</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+          <div class="npc">
+            <img src="./img/attack_man2.png" id="npc_profile" />
+            <div id="npc_list">
+              <div class="npc_name">
+                <p>지연</p>
+              </div>
+              <div class="npc_speak">
+                <h2>냄새도 나잖아 ㅋㅋㅋ</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text" style="display: none">
+          <div class="player">
+            <div id="player_list">
+              <div class="player_name">
+                <p class="players">피해자</p>
+              </div>
+  
+              <div class="saying">
+                <div class="player_speak">
+                  <div class="point"></div>
+                  <div class="point delay-second"></div>
+                  <div class="point delay-third"></div>
+                </div>
+              </div>
+  
+              <div class="saying" style="display: none">
+                <div class="player_speak">
+                  <h2 class="user_say">aa</h2>
+                </div>
+              </div>
+            </div>
+  
+            <img src="./img/defend_man.png" id="player_profile" />
+          </div>
+        </div>
+  
+        <!--두번째 질문 에서 1번을 말했을 경우-->
+        <div class="scene" style="display: none">
+          <div class="only_speak">
+            <div class="join_box text" id="join" style="display: none">
+              <span class="user_name">ooo</span>님이 나갔습니다.
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>시원함을 느끼고 자살 충동도 5 감소하였습니다.</h3>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>? 쟤 뭐냐 </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>하...ㅋ.. </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="only_speak">
+            <div class="join_box text" id="join" style="display: none">
+              <span class="user_name">ooo</span>님이 초대되었습니다.
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>어딜 도망가 ㅡㅡ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div id="npc_list">
+                <div class="npc_speak" id="only">
+                  <h2>도망갈수 있으면 도망가봐 ㅋ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>빠져나갈수 없다는 사실에 자살 충동도 20 증가하였습니다.</h3>
+            </div>
+          </div>
+        </div>
+        <!--2번째 씬 2번을 선택했을 경우-->
+        <div class="scene" style="display: none">
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>하 이자식 **재미없네</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div id="npc_list">
+                <div class="npc_speak" id="only">
+                  <h2>이러니까 *따 당하는거야 ㅋㅋ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak">
+                  <h2>미안..ㅠ</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>야 얘한테 뭘 바라냐 </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div id="npc_list">
+                <div class="npc_speak" id="only">
+                  <h2>돈도 얻었는데 당구 ㄱ?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>ㄱㄱ</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>돈도 잃고 점점 희망을 잃고 있습니다.</h3>
+              <h3> 자살 충동도 30 증가하였습니다.</h3>
+            </div>
+          </div>
+        </div>
+          <!--세번쨰 시나리오-->
+          
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak" id="only_speak">
+                  <h2>하... 언제까지 이렇게 살아야 되는걸까</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+          
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>사이버 블링 신고는 117 이라는데... 한번 해볼까?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>하지만 들키면...나는 또 맞을거야...</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+    
+                <div class="saying">
+                  <div class="player_speak">
+                    <div class="point"></div>
+                    <div class="point delay-second"></div>
+                    <div class="point delay-third"></div>
+                  </div>
+                </div>
+    
+                <div class="saying" style="display: none">
+                  <div class="player_speak">
+                    <h2 class="user_say">aa</h2>
+                  </div>
+                </div>
+              </div>
+    
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>     
+            <!--1-1 선택-->
+          <div class="scene" style="display: none">
+            
+                
+            <div class="text" style="display: none">
+              <div class="npc">
+                <img src="./img/police.jpg" id="npc_profile" />
+                <div id="npc_list">
+                  <div class="npc_name">
+                    <p>사이버경찰청</p>
+                  </div>
+                  <div class="npc_speak">
+                    <h2>안녕하세요 사이버 경찰청 김경찰 입니다.</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="text" style="display: none">
+              <div class="npc">
+                <div class="npc_speak" id="only">
+                  <h2>무엇을 도와드릴까요?</h2>
+                </div>
+              </div>
+            </div>
+  
+            <div class="text" style="display: none">
+              <div class="player">
+                <div id="player_list">
+                  <div class="player_name">
+                    <p class="players">피해자</p>
+                  </div>
+                  <div class="player_speak">
+                    <h2>저기... 익명성 보장 되는거죠...?</h2>
+                  </div>
+                </div>
+                <img src="./img/defend_man.png" id="player_profile" />
+              </div>
+            </div>
+          
+            <div class="text" style="display: none">
+              <div class="npc">
+                <img src="./img/police.jpg" id="npc_profile" />
+                <div id="npc_list">
+                  <div class="npc_name">
+                    <p>사이버경찰청</p>
+                  </div>
+                  <div class="npc_speak">
+                    <h2>네 저희는 언제나 익명성을 보장하며</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="text" style="display: none">
+              <div class="npc">
+                <div class="npc_speak" id="only">
+                  <h2>국민이 안전할수 있도록 도와드립니다. </h2>
+                </div>
+              </div>
+            </div>
+            
+            <div class="text" style="display: none">
+              <div class="player">
+                <div id="player_list">
+                  <div class="player_name">
+                    <p class="players">피해자</p>
+                  </div>
+                  <div class="player_speak">
+                    <h2>저에게 사이버 폭력하는 애들이 있는데</h2>
+                  </div>
+                </div>
+                <img src="./img/defend_man.png" id="player_profile" />
+              </div>
+            </div>
+            <div class="text" style="display: none">
+              <div class="player" id="player_only">
+                <div id="player_list">
+                  <div class="player_speak">
+                    <h2>진짜 죽고 싶을정도로 너무 힘들어요...</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text" style="display: none">
+              <div class="player" id="player_only">
+                <div id="player_list">
+                  <div class="player_speak">
+                    <h2>제발 도와주세요...ㅠㅠ</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="text" style="display: none">
+              <div class="npc">
+                <img src="./img/police.jpg" id="npc_profile" />
+                <div id="npc_list">
+                  <div class="npc_name">
+                    <p>사이버경찰청</p>
+                  </div>
+                  <div class="npc_speak">
+                    <h2>혹시 사이버 폭력당한 내역을 캡처해서<br> 보여주실수 있으실까요?</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <div class="text" style="display: none">
+              <div class="player">
+                <div id="player_list">
+                  <div class="player_name">
+                    <p class="players">피해자</p>
+                  </div>
+                  
+                  <div class="player_speak">
+                    <img src="./img/capture2.jpg">
+                  </div>
+                </div>
+                <img src="./img/defend_man.png" id="player_profile" />
+              </div>
+            </div>
+  
+            <div class="text" style="display: none">
+              <div class="npc">
+                <img src="./img/police.jpg" id="npc_profile" />
+                <div id="npc_list">
+                  <div class="npc_name">
+                    <p>사이버경찰청</p>
+                  </div>
+                  <div class="npc_speak">
+                    <h2>음.. 쉽게볼 사안은 아닌것 같네요.<br>네 접수 완료 했습니다.</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text" style="display: none">
+              <div class="npc">
+                <div class="npc_speak" id="only">
+                  <h2>그동안 고생 많으셨습니다.</h2>
+                </div>
+              </div>
+            </div>
+    
+  
+          
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                
+                <div class="player_speak">
+                  <h2>ㅠㅜ..넵 감사합니다.</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>자살 충동도 6 감소하였습니다.</h3>
+            </div>
+          </div>
+        </div>
+          <!--1-2시나리오-->
+  
+          <div class="text" style="display: none">
+          <div class="npc">
+            <img src="./img/attack_man.png" id="npc_profile" />
+            <div id="npc_list">
+              <div class="npc_name">
+                <p>은혜</p>
+              </div>
+              <div class="npc_speak">
+                <h2><span class="user_name">ooo</span>미안해! 제발 한번만 용서해줘<br>이번 한번만 용서해주면 다시는 안괴롭힐게</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>나도 미안! 제발 이번 한번만...</h2>
+                </div>
+              </div>
+            </div>
+        </div>
+  
+  
+        <div class="text" style="display: none">
+          <div class="player">
+            <div id="player_list">
+              <div class="player_name">
+                <p class="players">피해자</p>
+              </div>
+  
+              <div class="saying">
+                <div class="player_speak">
+                  <div class="point"></div>
+                  <div class="point delay-second"></div>
+                  <div class="point delay-third"></div>
+                </div>
+              </div>
+  
+              <div class="saying" style="display: none">
+                <div class="player_speak">
+                  <h2 class="user_say">aa</h2>
+                </div>
+              </div>
+            </div>
+  
+            <img src="./img/defend_man.png" id="player_profile" />
+          </div>
+        </div> 
+        
+        <!--3-1-->
+        <div class="scene" style="display: none">
+        
+          <div class="only_speak">
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+            <h2 class="text" style="text-align: center">그렇게 피해자는 여린 마음에 신고를 취소 하였고<br> 2주라는 시간이 흘렸다</h2>
+          </div>
+        
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>야 ㅋㅋㅋㅋ 니가 감히 날 신고해?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>신고하면 내가 뭐 잡혀갈줄 알았어?</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>넌 이제 뒤졌다.</h2>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>야 니 신상정보와 동영상 인터넷에 뿌려질줄 알아</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak">
+                  <h2>.............</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>자살 충동도 40 증가하였습니다.</h3>
+            </div>
+          </div>
+
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak" id="only_speak">
+                  <h2>하...이제 지쳤어</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>이제 그만하자</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>죽으면 그래도 편안하겠지...?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>이 지옥같은 곳보다는 편안할거야...</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="text" style="display: none;">
+            <div id="self_img">
+            <img src="./img/self_death.png">
+           </div>
+          </div>
+  
+          <div class="text" style="display: none"  id="sad_ending1">
+            <div class="status_box" >
+              <h3 style="text-align: center">자살로 인해 피해자가 사망하였습니다.</h3>
+            </div>
+          </div>
+
+
+        </div>
+  
+  
+  
+        <div class="scene" style="display: none">
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak">
+                  <h2>깜빵에서 잘 썩고 다시는 보지 말자</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>응 해봐~ 기록 삭제하면 그만이야~</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak">
+                  <h2>그게 삭제한다고 기록이 다 사라질것 같아?</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak">
+                  <h2>넌 이제 끝이야</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="status_box">
+              <h3>자살 충동도 30 감소하였습니다.</h3>
+            </div>
+          </div>
+  
+          <div class="only_speak">
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/police.jpg" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>사이버경찰청</p>
+                </div>
+                <div class="npc_speak">
+                  <img src="./img/arrest.png">
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/police.jpg" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>사이버경찰청</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>너네들의 인터넷, sns 기록은 모두 확인 됐다.</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>그동안 사람들 괴롭히느랴 재밌었지?</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>이제 깜빵에서 재밌게 살자</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="status_box" >
+              <h3 style="text-align: center">더이상 악몽을 꾸지 않아<br>자살충동도 10감소합니다.</h3>
+            </div>
+          </div>
+
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak">
+                  <h2>드디어 이 악몽같은 현실이 끝났어</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak">
+                  <h2>이제 난 자유야!! </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="text" style="display: none;">
+            <div id="self_img">
+            <img src="./img/angel.png">
+           </div>
+          </div>
+
+          <div class="text" style="display: none" id="happy_ending">
+            <div class="status_box" >
+              <h3 style="text-align: center">가해자가 사라짐으로써<br>악몽이 사라졌습니다.</h3>
+            </div>
+          </div>
+         
+          
+
+        </div>
+  
+  
+        <div class="scene" style="display: none">
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>조금만 참자.. 언젠가 끝날거야...</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="only_speak">
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+            <h2 class="text">.</h2>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>은혜</p>
+                </div>
+                <div class="npc_speak">
+                  <h2>야 데이터좀 있냐</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>우리 게임해야 되서 핫스팟좀 쓰자 ㅋㅋ</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak">
+                  <h2>ㅇ...응....</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <img src="./img/attack_man2.png" id="npc_profile" />
+              <div id="npc_list">
+                <div class="npc_name">
+                  <p>지연
+                  </p>
+                </div>
+                <div class="npc_speak">
+                  <h2>왜 싫냐?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>싫으면 싫다고 말하던가</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="npc">
+              <div class="npc_speak" id="only">
+                <h2>얻어맞고 싶으면 ㅋㅋ</h2>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="status_box" >
+              <h3 style="text-align: center">반복된 사이버 불링으로 인해<br>자살충동도 40증가하였습니다.</h3>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player">
+              <div id="player_list">
+                <div class="player_name">
+                  <p class="players">피해자</p>
+                </div>
+                <div class="player_speak" id="only_speak">
+                  <h2>하...이제 지쳤어</h2>
+                </div>
+              </div>
+              <img src="./img/defend_man.png" id="player_profile" />
+            </div>
+          </div>
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>이제 그만하자</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>죽으면 그래도 편안하겠지...?</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="text" style="display: none">
+            <div class="player" id="player_only">
+              <div id="player_list">
+                <div class="player_speak" id="only_speak">
+                  <h2>이 지옥같은 곳보다는 편안할거야...</h2>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+  
+          <div class="text" style="display: none;" >
+            <div id="self_img">
+            <img src="./img/self_death.png">
+           </div>
+          </div>
+  
+          <div class="text" style="display: none" id="sad_ending2">
+            <div class="status_box" >
+              <h3 style="text-align: center">자살로 인해 피해자가 사망하였습니다.</h3>
+            </div>
+          </div>
+  
+          
+        </div>
+  
+  
+  
+  
+        </div>
+        
+      </div>
+  
+  
+  
+    </div>
+  
+  
+  
+        
+  
+  
+    </main>
+      <div class="choose_list">
+        
+        <div class="user_choose" style="display: none">
+          <div class="choose_box box1" id="one_box">
+            <h3 class="choose">하지마...</h3>
+          </div>
+  
+          <div class="choose_box box2" id="two_box">
+            <h3 class="choose">어떻게든 입금할게요</h3>
+          </div>
+        </div>
+  
+        <div class="user_choose" style="display: none">
+          <div class="choose_box box3" id="one_box">
+            <h3 class="choose" style="text-align: center">
+              1. 지들이 더 못생긴 주제에라고<br>말한뒤 채팅방에서 나간다.
+            </h3>
+          </div>
+  
+          <div class="choose_box box4" id="two_box">
+            <h3 class="choose">2.으...응...</h3>
+          </div>
+        </div>
+  
+        <div class="user_choose" style="display: none">
+          <div class="choose_box box5" id="one_box">
+            <h3 class="choose" style="text-align: center">
+             1. 평생 이렇게 살순 없어!<br>117에 신고해야겠어
+            </h3>
+          </div>
+  
+          <div class="choose_box box6" id="two_box" >
+            <h3 class="choose" style="text-align: center">2.후환이 너무 두려워...<br>그냥 꾸욱 참고 지낼래..</h3>
+          </div>
+        </div>
+  
+        <div class="user_choose" style="display: none">
+          <div class="choose_box box5" id="one_box">
+            <h3 class="choose" style="text-align: center">
+             1. 그래 반성하는것 같은데<br>한번만 용서해주자
+            </h3>
+          </div>
+  
+          <div class="choose_box box6" id="two_box">
+            <h3 class="choose" style="text-align: center">2.뭔 용서야 내가 그동안<br>당한게 있는데</h3>
+          </div>
+        </div>
+
+        <div class="user_choose" style="display: none" id="cause">
+          <div class="choose_box box1" id="one_box">
+            <a href="./slide.html">
+            <h3 class="choose" >원인 알아보러 가기</h3>
+          </a>
+          </div>
+        </div>
+
+
+
+
+      </div>
+  
+      
+  
+  
+  
+  
+  
+      <script src="./js/main.js"></script>
+  
+    
+  </body>
+</html>
